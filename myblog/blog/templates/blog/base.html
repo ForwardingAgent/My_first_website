@@ -1,0 +1,140 @@
+<!-- '{'%' 'url' '%'}' лучше использовать когда используется не элемент базы данных-->
+<!-- #{{ p.get_absolute_url }} использовать когда достается из базы данных -->
+{% load static %} 
+{% load blog_tags %}
+<html>
+<head>
+  <!DOCTYPE html>
+    <title>{{title}}</title>
+    <link type="text/css" href="{% static 'blog/css/styles.css' %}" rel="stylesheet"/>
+    <!-- урок 7, файл оформления подключается c помощью link-->
+    <!--в атрибуте href прописыватся путь к файлу оформления (blog/css/styles.css)-->
+    <!--при выгрузке Django сам найдет папку Static а путь надо прописать-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="shortcut icon" href="{% static 'blog/images/main.ico' %}" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<table class="table-page" border="0" cellpadding="0" cellspacing="0">
+<tr><td valign="top">
+{% block mainmenu %}
+    <div class="header">
+      <ul id="mainmenu" class="mainmenu">
+      <li class="logo"><a href="{% url 'home' %}"><div class="logo"></div></a></li>
+{% for m in menu %}
+  <!--'{'%' if not forloop.last '%'}' 19 урок-->
+      <li><a href="{% url m.url_name %}">{{m.title}}</a></li>
+  <!-- {'%' else '%'} 19 урок -->
+      <!--<li class="last"><a href="{"%"" url m.url_name "%"}">{{m.title}}</a></li> 19 урок
+      эту строку выносим из цикла на 4 строки ниже и заменяем ссылку на Регистрация и Вход
+  '{'%' endif '%'}'-->
+{% endfor %}
+        {% if request.user.is_authenticated %}  <!-- 20 урок -->
+        <li class="last">{{user.username}} | <a href="{% url 'logout' %}">Выйти</a></li>
+        {% else %}
+        <li class="last"><a href="{% url 'register' %}">Регистрация</a> | <a href="{% url 'login' %}">Войти</a></li>
+        {% endif %}
+      </ul>
+      <div class="clear"></div>
+    </div>
+{% endblock mainmenu %}
+<table class="table-content" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<!-- Sidebar слева -->
+  <td valign="top" class="left-chapters">
+    <!-- {% getcats as categories %} убрали в конце 11 урока появилось после тега в blog_tags.py, 11 урок-->
+
+  <ul id="leftchapters">
+{% if cat_selected == 0 %}
+        <li class="selected">Все категории</li> <!-- отображает "Все категории" как текст когда выбрана-->
+{% else %}
+        <li><a href="{% url 'home' %}">Все категории</a></li> <!-- отображает "Все категории" как ссылку если не выбрана -->
+{% endif %}
+
+
+ <!-- '{'%' show_categories cat_selected=cat_selected '%'}' на 11 уроке добавили
+  как пользовательский тэг, на 17 при Mixins убрали (он отображает Актеры, Певцы, Спортсмены) 
+  а нижний блок переехал в list_categories.html -->
+{% for c in cats %} <!-- убрали в 11 уроке показать пользовательский тег (выше), в 17 Mixins  вернули
+  было categories стало cats тк в utils.py DataMixin использует cat-->
+{% if c.article__count > 0 %} <!-- 17 урок 22.40 из utils.py если в рубрике нет статей то ее не отображать -->
+    {% if c.pk == cat_selected %}
+       <li class="selected">{{c.name}}</li>   <!--отображает "Выбраную категорию" как текст когда выбрана--> 
+    {% else %}
+       <li><a href="{{ c.get_absolute_url }}">{{ c.name }}</a></li>   <!--отображает "Выбраную категорию" как ссылку если не выбрана -->
+   {% endif %}
+{% endif %}
+{% endfor %}
+
+    <li class="share">
+    <p>Мои контакты</p>
+    <a class="share-yt" href="https://www.youtube.com/channel/UClJzWfGWuGJL2t-3dYKcHTA/playlists" target="_blank" rel="nofollow"></a>
+    </li>
+  </ul>
+</td>
+<!-- Конец Sidebar'а -->
+<td valign="top" class="content">
+  <!-- Хлебные крошки -->
+  {% block breadcrumbs %}
+  {% endblock %}
+
+<!-- Блок контента -->
+  <div class="content-text">
+{% block content %}
+{% endblock %}
+{% if page_obj.has_other_pages %}  <!-- 18 урок, 18.00 has_other_pages если TRUE возвращает номера страниц
+если есть несколько страниц, если одна страница возвразает FALSE -->
+<nav class="list-pages">
+  <ul>
+{% if page_obj.has_previous %} <!-- проверка, has_previos - существует ли предыдущая страница возвращает TRUE
+тогда отображаем кнопку и формируем ссылку ниже page_obj.previos_page_number 
+и отображаем угловую скобку влево - &lt; 
+previos_page_number - хранит номер предыдущей страницы-->
+<li class="page-num">
+  <a href="?page={{ page_obj.previos_page_number }}">&lt;</a>
+</li>
+{% endif %}
+        
+      {% for p in paginator.page_range %}  <!-- 18 урок, 12.30 обращение при работе через class, 
+        в моем сайте ArticleHome(ListView), идет через paginator так paginator.page_range, т.к. ListView
+        автоматически в шаблон base.html передает два объекта paginator и page_obj,
+        если paginator из функции,тогда через page_obj так - page_obj.paginator.page_range-->
+      {% if page_obj.number == p %}
+      <li class="page-num page-num-selected">{{ p }}</li>  <!-- если номер текущей страницы page_obj.number -->
+      <!--  совпадает с р, то отображаем этот элемент списка как обычный текст -->
+      <!-- '{''%' else '%''}' до 18 урок 21.00, после стало то что ниже--> 
+      {% elif page_obj.number|add:1 >= p and p >= page_obj.number|add:-1 %} 
+      <!-- проверка чтобы небыли выведены внизу все -->
+      <!--имеющиеся страницы, а только + и - 2 от той на которой находимся. | add: это фильтр-->
+      <li class="page-num"> <!-- отображаем список -->
+          <a href="?page={{ p }}">{{ p }}</a>
+      </li>
+      {% endif %}
+      {% endfor %}
+
+{% if page_obj.has_next %} <!-- проверка, has_next - существует ли следующая страница возвращает TRUE
+  тогда отображаем кнопку и формируем ссылку ниже page_obj.next_page_number 
+  и отображаем угловую скобку влево - &gt;
+  next_page_number - хранит номер следующей страницы -->
+<li class="page-num">
+  <a href="?page={{ page_obj.next_page_number }}">&gt;</a>
+</li>
+{% endif %}
+
+  </ul>
+</nav>
+{% endif %}
+  </div>
+<!-- Конец блока контента -->
+
+</td></tr></tbody></table>
+</td></tr>
+<!-- Footer -->
+<tr><td valign="top">
+  <div id="footer">
+    <p>© 2023 Частичное или полное копирование информации с данного сайта для распространения на других ресурсах, в том числе и бумажных, строго запрещено.</p>
+  </div>
+</td></tr></tbody></table>
+<!-- Конец footer'а и страницы -->
+</body>
+</html>

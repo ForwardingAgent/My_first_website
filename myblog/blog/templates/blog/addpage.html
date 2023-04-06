@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<h1>{{title}}</h1>
+
+<form action="{% url 'add_page' %}" method="post", enctype="multipart/form-data">
+    <!-- action - к какому url надо обратиться для обработки формы-->
+    <!-- method передачи данных - для передачи формы используют POST(логин/пароль)  -->
+    <!-- enctype при передаче файлов совместно с данными-->
+    {% csrf_token %} <!-- csrf - для зачиты от csrf атак -->
+    <!-- {{ form.as_p }} добавили и убрали 13 уроке - as_p это функция as_p() позволяет отображать поля через тэгабзац _p (есть _ul, _table, _div())-->
+    
+    <div class="form-error">{{ form.non_field_errors }}</div>
+    <!-- отображать ошибки не связвные с полями (при ошибке в def addpage()) -->
+
+{% for f in form %}  <!-- 13 урок 22.25, form из veiws.py form=AddPostForm(POST) -->
+<p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+<div class="form-error">{{ f.errors }}</div>  <!--коллекция errors для обработки ошибок -->
+{% endfor %}
+
+    <button type="submit">Добавить</button>
+</form>
+
+{% endblock %}

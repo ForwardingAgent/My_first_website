@@ -1,0 +1,8 @@
+
+{% for c in cats %}  <!--cats из blog_tags.py, а весь блог из base.html строка 50-->
+    {% if c.pk == cat_selected %}
+        <li class="selected">{{c.name}}</li>
+    {% else %}
+        <li><a href="{{ c.get_absolute_url }}">{{c.name}}</a></li>
+    {% endif %}
+{% endfor %}
