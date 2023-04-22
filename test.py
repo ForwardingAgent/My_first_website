@@ -1,8 +1,9 @@
-
-num = int(input())
-description = {1: 'One', 2: 'Two', 3: 'Three'}
-
-print(description.get(num, 'Unknown'))
+text = 'footballcyberpunkextraterritor'
+result = {}
+for i in text:
+    result[i] = result.get(i, 0) + 1
+    print(result)
+    print(result.get(i, 0) + 1)
 
 class PhoneBook:
     def __init__(self):
