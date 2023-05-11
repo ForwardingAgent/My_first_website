@@ -4,8 +4,8 @@ from blog.views import *
 urlpatterns = [
     # path('', index, name='home') c 15 урока
     path('', ArticleHome.as_view(), name='home'),
-    path('about/', About.as_view(), name='about'),  # сам сделал
-    # path('about/', about, name='about'),  # http://127.0.0.1:8000/about/
+    # path('about/', About.as_view(), name='about'),  # сам сделал
+    path('about/', about, name='about'),  # http://127.0.0.1:8000/about/
     # до 8 урока было 2 пути
 
     path('addpage/', AddPage.as_view(), name='add_page'),  # 15 урок 25.25

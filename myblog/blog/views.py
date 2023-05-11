@@ -77,7 +77,7 @@ def index(request):  # request это ссылка на запрос HttpRequest
     return render(request, 'blog/post_list.html', context=context)
 '''
 
-
+'''  проверить 
 class About(DataMixin, View):
     def get(self, request):
         return render(request, 'blog/about.html', {'title': 'О сайте'})
@@ -93,8 +93,8 @@ class About(DataMixin, View):
         # context['menu'] = menu  # и добавляем в context(словарь) еще menu, которое в начале(вверху страницы)
         context = dict(list(context.items()) + list(c_def.items()))  # объединяем два словаря
         return context
-
 '''
+
 def about(request):  # Paginator для функции. Он встроен в класс ListView, но т.к. 
     # у нас тут функция то строк будет больше: 
     contact_list = Article.objects.all()  # 18 урок. Сначала считаем список всех статей.
@@ -105,7 +105,6 @@ def about(request):  # Paginator для функции. Он встроен в �
     # будет содержать список элементов текущей страницы. Обращаемся к paginator и с помощью
     # get_page указываем странцу которую получили из GET. Затем в return page_obj добавили
     return render(request, 'blog/about.html', {'page_obj': page_obj, 'menu': menu, 'title': 'Про сайт'})
-'''
 
 
 class AddPage(LoginRequiredMixin, DataMixin, CreateView):

@@ -9,10 +9,10 @@ menu = [{'title': 'О сайте', 'url_name': 'about'},
         ]
 
 
-class DataMixin:  # урок 17 будет формировать нужный контекст по умолчанию
+class DataMixin:  
     paginate_by = 3  # 18 урок 17:00 перенесли из ArticleHome
 
-    def get_user_context(self, **kwargs):
+    def get_user_context(self, **kwargs):  # урок 17 будет формировать нужный контекст по умолчанию
         context = kwargs  # формируем словарь из тех именнованых параметров которые переданы функции get_user_context
         cats = Category.objects.annotate(Count('article'))  # вместо нижней строки делаем чтобы не вывдить категорию,
         # которая не имеет ни одной записи
