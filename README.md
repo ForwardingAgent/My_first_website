@@ -1,15 +1,12 @@
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
 <!-- PROJECT LOGO -->
-<br />
 <div align="center">
   <h1 align="center">Известные люди</h1>
   <p align="center">
     Pet-project
       </p>
 </div>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -24,8 +21,7 @@
     <li>
       <a href="#Начало-работы">Начало работы</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#Установка-и-запуск">Установка и запуск</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -42,10 +38,13 @@
 <!-- ABOUT THE PROJECT -->
 ## О проекте
 
+
+Мой первый такой большой проект после самостоятельного изучения языка Python по курсам на различных образовательных платформах. 
+Сделан по серии роликов на ютуб-ресурсе. Задача была понять механику работы фрэймворка Django на практике и как функционирует бэкенд сайта. 
+
 ![Main_page](readme-assets/Main_view.png)
 
 
-Мой первый такой большой проект после самостоятельного обучения языка Python по курсам на различных образовательных платформах. Сделан по серии роликов на ютуб-ресурсе. Задача была понять механику работы фрэймворка Django на практике и как функционирует бэкенд сайта. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -69,36 +68,29 @@
 <!-- GETTING STARTED -->
 ## Начало работы
 
-Чтобы запустить локальную версию проекта необходимо выполнить следующие шаги:
-
-$ git clone https://github.com/[username]/precision-farming-threat-predictor.git
-
-
-
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Clone the repo
+Чтобы запустить локальную версию проекта необходимо скачать себе командой:
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```sh
-3. Install requirements
-   ```sh
-   pip install -r requirements.txt.
+$ git clone https://github.com/ForwardingAgent/My_first_website.git
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+
+### Установка и запуск
+
+
+1. Активируйте виртуальное окружение
+   ```sh
+   source venv/bin/activate
+    ```
+3. Установите зависимости 
+   ```sh
+   pip install -r requirements.txt
+   ```
+4. Проведи миграции
+   ```sh
+   python manage.py makemigrations, python manage.py migrate
+   ```
+5. Запустите локальный сервер
+   ```sh
+   python manage.py runserver
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
