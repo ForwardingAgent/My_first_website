@@ -22,7 +22,7 @@
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#Начало-работы">Начало работы</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
@@ -67,10 +67,14 @@
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## Начало работы
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Чтобы запустить локальную версию проекта необходимо выполнить следующие шаги:
+
+$ git clone https://github.com/[username]/precision-farming-threat-predictor.git
+
+
+
 
 ### Prerequisites
 
@@ -84,14 +88,13 @@ This is an example of how to list things you need to use the software and how to
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://github.com/ForwardingAgent/My_first_website/blob/main/Main_view.png)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
    ```sh
-   npm install
+3. Install requirements
+   ```sh
+   pip install -r requirements.txt.
    ```
 4. Enter your API in `config.js`
    ```js
