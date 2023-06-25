@@ -59,7 +59,7 @@
     <li>
       <a href="#about-the-project">О Проекте</a>
       <ul>
-        <li><a href="Использованые инструменты для создания проекта">Built With</a></li>
+        <li><a href="#built-with">Инструменты проекта</a></li>
       </ul>
     </li>
     <li>
