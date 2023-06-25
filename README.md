@@ -57,9 +57,9 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#about-the-project">О Проекте</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="Использованые инструменты для создания проекта">Built With</a></li>
       </ul>
     </li>
     <li>
@@ -81,7 +81,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## О проекте
 
 ![Main_page](https://github.com/ForwardingAgent/My_first_website/blob/main/Main_view.png)
 
