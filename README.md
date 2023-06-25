@@ -42,7 +42,7 @@
 <!-- ABOUT THE PROJECT -->
 ## О проекте
 
-![Main_page](https://github.com/ForwardingAgent/My_first_website/blob/main/Main_view.png)
+![Main_page](readme-assets/Main_view.png)
 
 
 Мой первый такой большой проект после самостоятельного обучения языка Python по курсам на различных образовательных платформах. Сделан по серии роликов на ютуб-ресурсе. Задача была понять механику работы фрэймворка Django на практике и как функционирует бэкенд сайта. 
