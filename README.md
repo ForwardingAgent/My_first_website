@@ -96,7 +96,10 @@ $ git clone https://github.com/ForwardingAgent/My_first_website.git
 
 В данном проекте реализована идея сайта с регистрацией и авторизацией пользоваетелей, с возможностью добавления статей и админ-панелью. 
 Статьи разбиты по категориям в сайдбаре слева, а для быстрого перемещения по большому количеству статей применена постраничная пагинация.
-
+![Main_page](readme-assets/Main_view.png)
+![Main_page](readme-assets/Main_view.png)
+![Main_page](readme-assets/Main_view.png)
+![Main_page](readme-assets/Main_view.png)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
