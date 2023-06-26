@@ -95,20 +95,21 @@ $ git clone https://github.com/ForwardingAgent/My_first_website.git
 ## Описание и процесс работы
 
 В данном проекте реализована идея сайта с регистрацией:
-![Main_page](readme-assets/First_registration.png)
+![First_registration](readme-assets/First_registration.png)
 
 
 И авторизацией пользоваетелей:
-![Main_page](readme-assets/Authorization.png)
+![Authorization](readme-assets/Authorization.png)
 
 
 С возможностью добавления статей и админ-панельюЖ
-![Main_page](readme-assets/Django_admin.png)
+![Django_admin](readme-assets/Django_admin.png)
 
 
 Статьи разбиты по категориям в сайдбаре слева, а для быстрого перемещения по большому количеству статей применена постраничная пагинация.
-![Main_page](readme-assets/Main_view.png)
 
+
+![Pagination](readme-assets/Pagination.gif)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
