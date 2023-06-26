@@ -131,7 +131,7 @@ $ git clone https://github.com/ForwardingAgent/My_first_website.git
 <!-- CONTACT -->
 ## Контакты
 
-Email - nikolaspdk.it@gmail.com
+Email - npodkopaev@gmail.com
 
 Ссылка на проект: [https://github.com/ForwardingAgent/My_first_website](https://github.com/ForwardingAgent/My_first_website)
 
