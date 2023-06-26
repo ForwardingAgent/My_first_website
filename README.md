@@ -40,7 +40,7 @@
 Мой первый такой большой проект после самостоятельного изучения языка Python по курсам на различных образовательных платформах. 
 Сделан по серии роликов на ютуб-ресурсе. Задача была понять механику работы фрэймворка Django на практике и как функционирует бэкенд сайта. 
 
-![Main_page](readme-assets/Main_view.png)
+![Main_page](readme-assets/Main_page.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -94,11 +94,19 @@ $ git clone https://github.com/ForwardingAgent/My_first_website.git
 <!-- USAGE EXAMPLES -->
 ## Описание и процесс работы
 
-В данном проекте реализована идея сайта с регистрацией и авторизацией пользоваетелей, с возможностью добавления статей и админ-панелью. 
+В данном проекте реализована идея сайта с регистрацией:
+![Main_page](readme-assets/First_registration.png)
+
+
+И авторизацией пользоваетелей:
+![Main_page](readme-assets/Authorization.png)
+
+
+С возможностью добавления статей и админ-панельюЖ
+![Main_page](readme-assets/Django_admin.png)
+
+
 Статьи разбиты по категориям в сайдбаре слева, а для быстрого перемещения по большому количеству статей применена постраничная пагинация.
-![Main_page](readme-assets/Main_view.png)
-![Main_page](readme-assets/Main_view.png)
-![Main_page](readme-assets/Main_view.png)
 ![Main_page](readme-assets/Main_view.png)
 
 
